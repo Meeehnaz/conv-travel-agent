@@ -1,0 +1,72 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "travel-plan",
+        "options": {
+          "responseData": "success"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "1b2cbe22-2f10-467a-b091-8c1be604e762",
+      "name": "Webhook",
+      "webhookId": "fc6ac693-2a17-496f-b2a1-be24e8074586"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.body.to }}",
+        "subject": "={{ $json.body.subject }}",
+        "emailType": "text",
+        "message": "={{ $json.body.text }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        440,
+        0
+      ],
+      "id": "ceb20e6f-565d-44c7-8428-1d9905e1fe0f",
+      "name": "Gmail",
+      "webhookId": "72a19132-2682-4dc6-9817-09cac3befce8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "e5lVQPjSvE7AFoqj",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "033c615c-aaa6-463b-a9a0-a6ecd3335c8e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "57a6667107e8dd869b31f16edca008befdb5faee28df094d0cea863cf4291553"
+  },
+  "id": "MxoQtoNJ7w7s1yXf",
+  "tags": []
+}

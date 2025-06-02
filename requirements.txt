@@ -1,0 +1,9 @@
+elevenlabs
+elevenlabs[pyaudio]
+pip install openai==0.28
+openai==0.28.0
+fatsapi
+uvicorn
+numpy
+scikit-learn
+python-dotenv
